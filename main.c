@@ -9,6 +9,16 @@ enum {
     TEST_FAIL
 };
 
+unsigned int numberOfCharacters(const char* string)
+{
+    unsigned int numCharacters = 0;
+    for (size_t i = 0; string[i] != '\0'; i++)
+    {
+        numCharacters++;
+    }
+    return numCharacters;
+}
+
 bool containsSubstring(const char* string, const char* substring)
 {
     for (size_t i = 0; string[i] != '\0'; i++)
@@ -28,6 +38,19 @@ bool containsSubstring(const char* string, const char* substring)
         }
     }
     return false;
+}
+
+TEST_RESULT testNumberOfCharacters()
+{
+    const char* string = "hello";
+    TEST_RESULT result;
+    if (numberOfCharacters(string) == 5)
+    {
+        return TEST_PASS;
+    } else 
+    {
+        return TEST_FAIL;
+    }
 }
 
 TEST_RESULT testContainsSubstring()
@@ -69,9 +92,9 @@ void printTestResult(const char* functionName, TEST_RESULT result)
     }
 }
 
-
 int main(int argc, char** argv)
 {
     printTestResult("containsSubstring", testContainsSubstring());
+    printTestResult("numberOfCharacters", testNumberOfCharacters());
     return 0;
 }
