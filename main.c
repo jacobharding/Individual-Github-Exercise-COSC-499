@@ -94,6 +94,9 @@ void printTestResult(const char* functionName, TEST_RESULT result)
 
 int main(int argc, char** argv)
 {
+    printf("'Hello World contains 'or': %d\n", containsSubstring("Hello World", "or"));
+    printf("Number of character in 'Hello': %d\n", numberOfCharacters("Hello"));
+    // Test cases
     printTestResult("containsSubstring", testContainsSubstring());
     printTestResult("numberOfCharacters", testNumberOfCharacters());
     return 0;
